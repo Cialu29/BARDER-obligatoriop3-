@@ -19,6 +19,9 @@ namespace InternalServices
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            //Agregar costum handler para validar el token JWT
+            config.MessageHandlers.Add(new TokenValidationHandler());
         }
     }
 }
