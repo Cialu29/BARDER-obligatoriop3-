@@ -11,7 +11,7 @@ using System.Web;
 
 namespace InternalServices.Seguridad.Handlers
 {
-    public class TokenValidationHandler
+    public class TokenValidationHandler : DelegatingHandler
     {
         public static bool IntentarObtenerToken(HttpRequestMessage request, out string token)
         {
@@ -68,10 +68,11 @@ namespace InternalServices.Seguridad.Handlers
 
                 TokenValidationParameters validationParameters = new TokenValidationParameters()
                 {
-                    ValidateAudience = audiencia,
+                    ValidAudience = audiencia,
                     ValidIssuer = emisor,
                     ValidateLifetime = true,
-                    ValidateIssuerSigningKey = this.ValidarTiempoDeVidaToken,
+                    ValidateIssuerSigningKey = true,
+                    LifetimeValidator = this.ValidarTiempoDeVidaToken,
                     IssuerSigningKey = claveSeguridad
                 };
 
