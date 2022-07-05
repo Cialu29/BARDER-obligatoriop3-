@@ -159,6 +159,7 @@
     <Compile Include="Models\Bardo\BardoModel.cs" />
     <Compile Include="Models\Foto\FotoModel.cs" />
     <Compile Include="Models\UsuarioBardo\UsuarioBardoModel.cs" />
+    <Compile Include="Models\Usuario\RefreshTokenModel.cs" />
     <Compile Include="Models\Usuario\UsuarioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seguridad\Handlers\TokenValidationHandler.cs" />
