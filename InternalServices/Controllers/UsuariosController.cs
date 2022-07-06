@@ -5,13 +5,15 @@ using InternalServices.Models.Usuario;
 using InternalServices.Seguridad;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
 
 namespace InternalServices.Controllers
 {
-    [AllowAnonymous]
+    [Authorize]
     public class UsuariosController : ApiController
     {
        [HttpGet]
@@ -78,11 +80,31 @@ namespace InternalServices.Controllers
 
                     uow.SaveChanges();
 
-                    //listado de fotos en base 64
+                    //Fotos manejo
+                    if(usuario.Fotoes != null)
+                    {
+                        foreach(var foto in usuario.Fotoes)
+                        {
+                            byte[] fotoBytes = Convert.FromBase64String(foto);
+                            string fotoURL = ConfigurationManager.AppSettings["FOTO_FILE_PATH"] + "nombre.jpg";
 
+                            File.WriteAllBytes(fotoURL, fotoBytes);
+
+                            //Guardar foto BD
+                            Foto fotoEntity = new Foto()
+                            {
+                                idUsuario = usuarioEntity.idUsuario,
+                                URL = fotoURL
+                            };
+
+                            uow.FotosRepository.AddFoto(fotoEntity);
+                        }
+                    }
+
+                    uow.SaveChanges();
                     uow.Commit();
 
-                    return Ok(usuarioEntity);
+                    return Ok();
                 }
                 catch (Exception ex)
                 {

@@ -13,7 +13,6 @@ namespace InternalServices.Models.Usuario
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public UsuarioModel()
         {
-            Fotoes = new HashSet<FotoModel>();
             UsuarioBardoes = new HashSet<UsuarioBardoModel>();
             UsuarioBardoes1 = new HashSet<UsuarioBardoModel>();
         }
@@ -54,7 +53,7 @@ namespace InternalServices.Models.Usuario
         public string Salt { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public ICollection<FotoModel> Fotoes { get; set; }
+        public List<string> Fotoes { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public ICollection<UsuarioBardoModel> UsuarioBardoes { get; set; }
