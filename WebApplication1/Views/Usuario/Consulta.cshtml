@@ -1,7 +1,13 @@
-﻿
+﻿@model List<WebApplication1.Models.UsuarioModel>
+
 @{
     ViewBag.Title = "Consulta";
 }
 
 <h2>Consulta</h2>
 
+<div class="navbar-collapse" collapse>
+    <ul>
+        <li>@Html.ActionLink("Inicio", "Consulta", "Usuario")</li>
+    </ul>
+</div>

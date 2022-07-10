@@ -23,7 +23,7 @@ namespace WebApplication1.Controllers
 
             var parameters = new Dictionary<string, string>()
             {
-                ["Id"] = Id.ToString()
+                ["Id"] = id.ToString()
             };
 
             var webApiUrl = ConfigurationManager.AppSettings["WEB:API_ENDPOINT"];
