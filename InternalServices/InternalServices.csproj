@@ -160,6 +160,7 @@
     </Compile>
     <Compile Include="Models\Bardo\BardoModel.cs" />
     <Compile Include="Models\Foto\FotoModel.cs" />
+    <Compile Include="Models\Login\LoginModel.cs" />
     <Compile Include="Models\UsuarioBardo\UsuarioBardoModel.cs" />
     <Compile Include="Models\Usuario\RefreshTokenModel.cs" />
     <Compile Include="Models\Usuario\UsuarioModel.cs" />
@@ -180,7 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\" />
+    <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

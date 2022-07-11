@@ -115,6 +115,7 @@ namespace InternalServices.Controllers
         }
 
         [HttpPost]
+        [Route("api/Usuario/Autenticar")]
         IHttpActionResult Autenticar([FromBody] UsuarioModel usuario)
         {
             try
