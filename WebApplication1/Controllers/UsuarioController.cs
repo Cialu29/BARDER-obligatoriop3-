@@ -48,6 +48,12 @@ namespace WebApplication1.Controllers
             return View(modelo);
         }
 
+        [HttpGet]
+        public ActionResult Creacion()
+        {
+
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Creacion(UsuarioModel usuarioModel)

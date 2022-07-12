@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Cross-Cutting-Concerns", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Http", "Http\Http.csproj", "{86718704-B2EF-4F8D-AE0A-E2B000D7AEB7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransferObjects", "TransferObjects\TransferObjects.csproj", "{86F25DE0-8A88-4D66-9732-B52B3F642490}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{86718704-B2EF-4F8D-AE0A-E2B000D7AEB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86718704-B2EF-4F8D-AE0A-E2B000D7AEB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86718704-B2EF-4F8D-AE0A-E2B000D7AEB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86F25DE0-8A88-4D66-9732-B52B3F642490}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86F25DE0-8A88-4D66-9732-B52B3F642490}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86F25DE0-8A88-4D66-9732-B52B3F642490}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86F25DE0-8A88-4D66-9732-B52B3F642490}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +65,7 @@ Global
 		{5805FBDE-4E3B-466D-A7F5-7C7E8D377FAF} = {DFF63083-8914-495C-87FB-9D6578914C43}
 		{7BDB7638-44B1-404E-AA11-DBDDB8531E58} = {6D5EA0F6-884F-47DD-942A-3294CDCC2BCA}
 		{86718704-B2EF-4F8D-AE0A-E2B000D7AEB7} = {8C08B696-E4AD-4992-942D-866EF6C75D55}
+		{86F25DE0-8A88-4D66-9732-B52B3F642490} = {8C08B696-E4AD-4992-942D-866EF6C75D55}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9075A8D4-25B8-469C-9771-4C0ADF4AA0CF}

@@ -1,17 +1,20 @@
 ﻿using Http;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using WebApplication1.Models;
+using WebApplication1.Seguridad;
 
 namespace WebApplication1.Controllers
 {
     public class SeguridadController : Controller
     {
-        public ActionResult Index()
+        public ActionResult InicioSesion()
         {
             return View();
         }
@@ -29,9 +32,32 @@ namespace WebApplication1.Controllers
                 Uri autenticarUsuarioUrl = new Uri(webApiUrl + "Usuario/Autenticar");
 
                 var response = apiClient.Post(autenticarUsuarioUrl, inicioSesionModelo);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    ModelState.AddModelError("Error Autenticacion", "Usuario y/o contraseña inválidos");
+                }
+                else
+                {
+                    var informacionUsuario = JsonConvert.DeserializeObject<InicioSesionModelo>(response.Content.ReadAsStringAsync().Result);
+
+                    SeguridadService.GuardarSesionUsuario(informacionUsuario);
+
+                    if (InicioSesionModelo.RememberMe)
+                    {
+                        FormsAuthentication.SetAuthCookie(InicioSesionModelo.Username, InicioSesionModelo.RememberMe);
+                    }
+
+                    return RedirectToAction("Index", "Home");
+                }
             }
 
             return View(InicioSesionModelo);
+        }
+
+        public ActionResult CerrarSesion
+        {
+            return View();
         }
     }
 }

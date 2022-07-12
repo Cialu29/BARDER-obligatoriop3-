@@ -20,6 +20,5 @@ namespace WebApplication1.Models
         [Required]
         [Display(Name = "Recordar usuario")]
         public bool RememberMe { get; set; }
-
     }
 }
