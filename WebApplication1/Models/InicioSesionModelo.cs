@@ -17,7 +17,6 @@ namespace WebApplication1.Models
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Required]
         [Display(Name = "Recordar usuario")]
         public bool RememberMe { get; set; }
     }

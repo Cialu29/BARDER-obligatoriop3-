@@ -54,10 +54,5 @@ namespace WebApplication1.Controllers
 
             return View(InicioSesionModelo);
         }
-
-        public ActionResult CerrarSesion
-        {
-            return View();
-        }
     }
 }

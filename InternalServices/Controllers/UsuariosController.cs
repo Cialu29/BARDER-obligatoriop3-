@@ -116,24 +116,20 @@ namespace InternalServices.Controllers
 
         [HttpPost]
         [Route("api/Usuario/Autenticar")]
-        IHttpActionResult Autenticar([FromBody] UsuarioModel usuario)
+        public IHttpActionResult Autenticar([FromBody] UsuarioModel usuario)
         {
             try
             {
-                if (usuario == null)
-                {
-                    return BadRequest("Informacion de autenticacion requerida");
-                }
-
-                //Validacion de credenciales
                 SecurityService securityService = new SecurityService();
-                bool credencialesValida = securityService.ValidarUsuario(usuario.Email, usuario.Contrasenia);
+                var usuarioValido = securityService.ValidarUsuario(usuario.Email, usuario.Contrasenia);
 
-                if (credencialesValida)
+                if (usuarioValido != null)
                 {
                     //Generar token
                     string token = TokenGenerator.GenerateToken(usuario.Email);
-                    return Ok(token);
+                    usuarioValido.Token = token;
+
+                    return Ok(usuarioValido);
                 }
                 else
                 {
