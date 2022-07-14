@@ -13,12 +13,12 @@ using System.Web.Http;
 
 namespace InternalServices.Controllers
 {
-    [Authorize]
     public class UsuariosController : ApiController
     {
        [HttpGet]
        [Route("api/Uusario/GetUsuarioById")]
-       public IHttpActionResult GetUsuarioById(int idU)
+       [Authorize]
+        public IHttpActionResult GetUsuarioById(int idU)
        {
             using(var uow = new UnitOfWork())
             {
@@ -48,6 +48,7 @@ namespace InternalServices.Controllers
 
         [HttpGet]
         [Route("api/Usuario/ExistUsuarioByEmail")]
+        [Authorize]
         public IHttpActionResult ExistUsuarioByEmail(string email)
         {
             using (var uow = new UnitOfWork())
@@ -78,6 +79,7 @@ namespace InternalServices.Controllers
 
         [HttpGet]
         [Route("api/Usuario/GetUsuarios")]
+        [Authorize]
         public IHttpActionResult GetUsuarios()
         {
             try
@@ -102,6 +104,7 @@ namespace InternalServices.Controllers
 
         [HttpPost]
         [Route("api/Usuario/AddUsuario")]
+        [AllowAnonymous]
         public IHttpActionResult AddUsuario([FromBody] UsuarioModel usuario)
         {
             using (var uow = new UnitOfWork())
@@ -172,6 +175,7 @@ namespace InternalServices.Controllers
 
         [HttpPost]
         [Route("api/Usuario/Autenticar")]
+        [AllowAnonymous]
         public IHttpActionResult Autenticar([FromBody] UsuarioModel usuario)
         {
             try
@@ -200,6 +204,7 @@ namespace InternalServices.Controllers
 
         [HttpPut]
         [Route("api/Usuario/UpdateUsuario")]
+        [Authorize]
         public IHttpActionResult UpdateUsuario([FromBody] UsuarioModel usuario)
         {
             using (var uow = new UnitOfWork())
@@ -232,6 +237,7 @@ namespace InternalServices.Controllers
 
         [HttpDelete]
         [Route("api/Usuario/RemoveUsuario")]
+        [Authorize]
         public IHttpActionResult RemoveUsuario(int idU)
         {
             using (var uow = new UnitOfWork())
