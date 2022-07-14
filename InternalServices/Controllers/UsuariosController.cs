@@ -50,7 +50,30 @@ namespace InternalServices.Controllers
         [Route("api/Usuario/ExistUsuarioByEmail")]
         public IHttpActionResult ExistUsuarioByEmail(string email)
         {
+            using (var uow = new UnitOfWork())
+            {
+                uow.BeginTransaction();
 
+                try
+                {
+                    var usuario = uow.UsuariosRepository.GetUsuarioByMail(email);
+
+                    if (usuario == null)
+                    {
+                        return NotFound();
+                    }
+
+                    uow.SaveChanges();
+                    uow.Commit();
+
+                    return Ok(usuario);
+                }
+                catch (Exception ex)
+                {
+                    uow.Rollback();
+                    return InternalServerError(ex);
+                }
+            }
         }
 
         [HttpGet]
