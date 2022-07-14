@@ -67,6 +67,8 @@ namespace InternalServices.Controllers
                     {
                         return NotFound();
                     }
+
+                    return Ok(usuarios);
                 }
             }
             catch (Exception ex)
@@ -117,7 +119,7 @@ namespace InternalServices.Controllers
                         foreach(var foto in usuario.Fotoes)
                         {
                             byte[] fotoBytes = Convert.FromBase64String(foto);
-                            string fotoURL = ConfigurationManager.AppSettings["FOTO_FILE_PATH"] + "nombre.jpg";
+                            string fotoURL = ConfigurationManager.AppSettings["FOTO_FILE_URL"] + "nombre.jpg";
 
                             File.WriteAllBytes(fotoURL, fotoBytes);
 

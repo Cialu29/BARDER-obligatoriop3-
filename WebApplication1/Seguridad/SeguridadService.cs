@@ -18,5 +18,7 @@ namespace WebApplication1.Seguridad
         {
             return (SesionUsuario)HttpContent.Current.Sesion["InformacionUsuario"];
         }
+
+        public static 
     }
 }
