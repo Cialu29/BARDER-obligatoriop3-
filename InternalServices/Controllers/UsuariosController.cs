@@ -17,6 +17,7 @@ namespace InternalServices.Controllers
     public class UsuariosController : ApiController
     {
        [HttpGet]
+       [Route("api/Uusario/GetUsuarioById")]
        public IHttpActionResult GetUsuarioById(int idU)
        {
             using(var uow = new UnitOfWork())
@@ -45,7 +46,37 @@ namespace InternalServices.Controllers
             }
        }
 
+        [HttpGet]
+        [Route("api/Usuario/ExistUsuarioByEmail")]
+        public IHttpActionResult ExistUsuarioByEmail(string email)
+        {
+
+        }
+
+        [HttpGet]
+        [Route("api/Usuario/GetUsuarios")]
+        public IHttpActionResult GetUsuarios()
+        {
+            try
+            {
+                using (var uow = new UnitOfWork())
+                {
+                    var usuarios = uow.UsuariosRepository.GetUsuarios();
+
+                    if (usuarios == null)
+                    {
+                        return NotFound();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
+
         [HttpPost]
+        [Route("api/Usuario/AddUsuario")]
         public IHttpActionResult AddUsuario([FromBody] UsuarioModel usuario)
         {
             using (var uow = new UnitOfWork())
@@ -143,6 +174,7 @@ namespace InternalServices.Controllers
         }
 
         [HttpPut]
+        [Route("api/Usuario/UpdateUsuario")]
         public IHttpActionResult UpdateUsuario([FromBody] UsuarioModel usuario)
         {
             using (var uow = new UnitOfWork())
@@ -174,6 +206,7 @@ namespace InternalServices.Controllers
         }
 
         [HttpDelete]
+        [Route("api/Usuario/RemoveUsuario")]
         public IHttpActionResult RemoveUsuario(int idU)
         {
             using (var uow = new UnitOfWork())

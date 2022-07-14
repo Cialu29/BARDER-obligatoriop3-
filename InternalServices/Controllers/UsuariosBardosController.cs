@@ -13,6 +13,7 @@ namespace InternalServices.Controllers
     public class UsuariosBardosController : ApiController
     {
        [HttpGet]
+       [Route("api/UsuariosBardos/GetUBById")]
        public IHttpActionResult GetUBById(int idB)
        {
             using (var uow = new UnitOfWork())
@@ -42,6 +43,7 @@ namespace InternalServices.Controllers
        }
 
         [HttpPost]
+        [Route("api/UsuariosBardos/AddUB")]
         public IHttpActionResult AddUB([FromBody] UsuarioBardoModel usuarioBardo)
         {
             using (var uow = new UnitOfWork())
@@ -73,6 +75,7 @@ namespace InternalServices.Controllers
         }
 
         [HttpPut]
+        [Route("api/UsuariosBardos/UpdateUB")]
         public IHttpActionResult UpdateUB([FromBody] UsuarioBardoModel usuarioBardo)
         {
             using (var uow = new UnitOfWork())
@@ -105,6 +108,7 @@ namespace InternalServices.Controllers
         }
 
         [HttpDelete]
+        [Route("api/UsuariosBardos/RemoveUB")]
         public IHttpActionResult RemoveUB(int idB)
         {
             using(var uow = new UnitOfWork())

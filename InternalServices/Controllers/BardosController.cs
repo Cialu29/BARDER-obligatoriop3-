@@ -13,6 +13,7 @@ namespace InternalServices.Controllers
     public class BardosController : ApiController
     {
         [HttpGet]
+        [Route("api/Bardo/GetBardosById")]
         public IHttpActionResult GetBardosById(int idB)
         {
             using (var uow = new UnitOfWork())
@@ -42,6 +43,7 @@ namespace InternalServices.Controllers
         }
 
         [HttpPost]
+        [Route("api/Bardo/AddBardo")]
         public IHttpActionResult AddBardo([FromBody] BardoModel bardo)
         {
             using (var uow = new UnitOfWork())
@@ -73,6 +75,7 @@ namespace InternalServices.Controllers
         }
 
         [HttpPut]
+        [Route("api/Bardo/UpdateBardo")]
         public IHttpActionResult UpdateBardo([FromBody] BardoModel bardo)
         {
             using (var uow = new UnitOfWork())
@@ -104,7 +107,8 @@ namespace InternalServices.Controllers
         }
 
         [HttpDelete]
-        public IHttpActionResult DeleteBardo(int idB)
+        [Route("api/Bardo/RemoveBardo")]
+        public IHttpActionResult RemoveBardo(int idB)
         {
             using (var uow = new UnitOfWork())
             {

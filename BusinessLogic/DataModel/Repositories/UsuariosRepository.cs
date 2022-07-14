@@ -26,6 +26,11 @@ namespace BusinessLogic.DataModel.Repositories
             return this._context.Usuarios.FirstOrDefault(e => e.idUsuario == idU);
         }
 
+        public Usuario GetUsuarios()
+        {
+            return this._context.Usuarios.Find();
+        }
+
         public Usuario GetUsuarioByMail(string mail)
         {
             return this._context.Usuarios.FirstOrDefault(e => e.Email.ToLower() == mail.ToLower());

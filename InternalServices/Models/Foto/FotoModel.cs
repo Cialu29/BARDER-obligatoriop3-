@@ -16,7 +16,7 @@ namespace InternalServices.Models.Foto
 
         [Required]
         [StringLength(100)]
-        public string URL { get; set; }
+        public string Url { get; set; }
 
         public UsuarioModel Usuario { get; set; }
     }

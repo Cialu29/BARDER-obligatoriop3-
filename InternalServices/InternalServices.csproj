@@ -153,6 +153,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BardosController.cs" />
     <Compile Include="Controllers\FotosController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\UsuariosBardosController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
@@ -194,6 +195,10 @@
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
       <Project>{363CDBC1-0A7F-4C48-B18D-2FEAF33EC477}</Project>
       <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApplication1\WebApplication1.csproj">
+      <Project>{7BDB7638-44B1-404E-AA11-DBDDB8531E58}</Project>
+      <Name>WebApplication1</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

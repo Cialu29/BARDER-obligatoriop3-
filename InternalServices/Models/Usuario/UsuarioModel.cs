@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using WebApplication1.Validations;
 
 namespace InternalServices.Models.Usuario
 {
@@ -30,6 +31,7 @@ namespace InternalServices.Models.Usuario
 
         [Required]
         [StringLength(25)]
+        [EmailUsuarioEnUsoValidationAttribute]
         public string Email { get; set; }
 
         [Required]

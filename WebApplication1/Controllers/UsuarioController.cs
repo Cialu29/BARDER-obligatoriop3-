@@ -15,7 +15,7 @@ namespace WebApplication1.Controllers
     //[Authorized]
     public class UsuarioController : ApiController
     {
-        // GET: Usuario
+        [HttpPost]
         public ActionResult Consulta(int id)
         {
             List<UsuarioModel> modelo = new List<UsuarioModel>();
@@ -46,12 +46,6 @@ namespace WebApplication1.Controllers
             }
 
             return View(modelo);
-        }
-
-        [HttpGet]
-        public ActionResult Creacion()
-        {
-
         }
 
         [HttpPost]
